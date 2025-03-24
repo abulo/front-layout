@@ -24,8 +24,8 @@
       "@/*": ["src/*"],
       "@build/*": ["build/*"]
     },
-    "types": ["node", "vite/client","element-plus/global"]
+    "types": ["node", "vite/client", "element-plus/global", "unplugin-icons/types/vue"]
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue","types/*.d.ts","vite.config.ts"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "types/*.d.ts", "vite.config.ts"],
   "exclude": ["dist", "**/*.js", "node_modules"]
 }
