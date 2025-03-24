@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "@pureadmin/utils": "^2.5.0",
+    "element-plus": "^2.9.7",
     "vue": "^3.5.13"
   },
   "devDependencies": {
@@ -60,7 +61,8 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "esbuild"
+      "esbuild",
+      "vue-demi"
     ]
   }
 }
