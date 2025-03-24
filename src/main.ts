@@ -1,6 +1,6 @@
-import { createApp } from 'vue'
-import ElementPlus from 'element-plus'
-import App from './App.vue'
+import { createApp } from "vue";
+import ElementPlus from "element-plus";
+import App from "./App.vue";
 
 // 导入公共样式
 import "./style/index.scss";
@@ -8,5 +8,5 @@ import "./style/index.scss";
 import "./style/tailwind.css";
 import "element-plus/dist/index.css";
 
-const app = createApp(App)
-app.use(ElementPlus).mount('#app')
+const app = createApp(App);
+app.use(ElementPlus).mount("#app");
