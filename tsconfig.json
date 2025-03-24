@@ -24,7 +24,7 @@
       "@/*": ["src/*"],
       "@build/*": ["build/*"]
     },
-    "types": ["node", "vite/client"]
+    "types": ["node", "vite/client","element-plus/global"]
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue","types/*.d.ts","vite.config.ts"],
   "exclude": ["dist", "**/*.js", "node_modules"]
