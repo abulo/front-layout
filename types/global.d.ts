@@ -64,5 +64,47 @@ declare global {
     VITE_OPEN: boolean;
     VITE_DROP_CONSOLE: boolean;
   }
+
+  /**
+   * 对应 `public/config.json` 文件的类型声明
+   */
+  interface PlatformConfigs {
+    Version?: string;
+    Title?: string;
+    Locale?: string;
+    DarkMode?: boolean;
+    IsMobile?: boolean;
+    Theme?: string;
+    ResponsiveStorageNameSpace?: string;
+  }
+
+  /**
+   * 与 `PlatformConfigs` 类型不同，这里是缓存到浏览器本地存储的类型声明
+   */
+  interface StorageConfigs {
+    version?: string;
+    title?: string;
+    locale?: string;
+    darkMode?: boolean;
+    isMobile?: boolean;
+    theme?: string;
+    responsiveStorageNameSpace?: string;
+  }
+  /**
+   * `responsive-storage` 本地响应式 `storage` 的类型声明
+   */
+  interface ResponsiveStorage {
+    version?: string;
+    title?: string;
+    locale?: string;
+    darkMode?: boolean;
+    isMobile?: boolean;
+    theme?: string;
+    responsiveStorageNameSpace?: string;
+  }
+  interface GlobalPropertiesApi {
+    $storage: ResponsiveStorage;
+    $config: PlatformConfigs;
+  }
 }
 export {};
