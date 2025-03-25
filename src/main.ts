@@ -8,5 +8,8 @@ import "./style/index.scss";
 import "./style/tailwind.css";
 import "element-plus/dist/index.css";
 
+import { store } from "@/store";
+import router from "@/router";
+
 const app = createApp(App);
-app.use(ElementPlus).mount("#app");
+app.use(ElementPlus).use(store).use(router).mount("#app");
