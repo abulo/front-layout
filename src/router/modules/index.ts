@@ -1,6 +1,7 @@
+import type { RouteRecordRaw } from "vue-router";
 // 布局
 const Layout = () => import("@/layout/index.vue");
-export const constantRouter = [
+export const constantRouter: RouteRecordRaw[] = [
   {
     path: "/",
     name: "Layout",
