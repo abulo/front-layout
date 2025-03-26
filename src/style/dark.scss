@@ -9,10 +9,10 @@ html.dark {
   // --el-bg-color: #020409;
 
   /* 常用border-color 需要时可取用 */
-  --pure-border-color: rgb(253 253 253 / 12%);
+  -front-layout-border-color: rgb(253 253 253 / 12%);
 
   /* switch关闭状态下的color 需要时可取用 */
-  --pure-switch-off-color: #ffffff3f;
+  -front-layout-switch-off-color: #ffffff3f;
 
   .navbar,
   .tags-view,
