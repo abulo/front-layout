@@ -71,7 +71,6 @@ declare global {
   interface PlatformConfigs {
     Version?: string;
     Title?: string;
-    Locale?: string;
     DarkMode?: boolean;
     IsMobile?: boolean;
     Theme?: string;
@@ -84,7 +83,6 @@ declare global {
   interface StorageConfigs {
     version?: string;
     title?: string;
-    locale?: string;
     darkMode?: boolean;
     isMobile?: boolean;
     theme?: string;
@@ -96,7 +94,6 @@ declare global {
   interface ResponsiveStorage {
     version?: string;
     title?: string;
-    locale?: string;
     darkMode?: boolean;
     isMobile?: boolean;
     theme?: string;
