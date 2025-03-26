@@ -72,7 +72,7 @@ declare global {
     Version?: string;
     Title?: string;
     DarkMode?: boolean;
-    IsMobile?: boolean;
+    Device?: string;
     Theme?: string;
     ResponsiveStorageNameSpace?: string;
   }
@@ -84,7 +84,7 @@ declare global {
     version?: string;
     title?: string;
     darkMode?: boolean;
-    isMobile?: boolean;
+    device?: string;
     theme?: string;
     responsiveStorageNameSpace?: string;
   }
@@ -95,7 +95,7 @@ declare global {
     version?: string;
     title?: string;
     darkMode?: boolean;
-    isMobile?: boolean;
+    device?: string;
     theme?: string;
     responsiveStorageNameSpace?: string;
   }

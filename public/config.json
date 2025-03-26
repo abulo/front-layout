@@ -2,7 +2,7 @@
   "Version": "0.0.1",
   "Title": "front-layout",
   "DarkMode": false,
-  "IsMobile": false,
+  "Device": "desktop",
   "Theme": "light",
   "ResponsiveStorageNameSpace": "responsive-"
 }

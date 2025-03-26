@@ -10,7 +10,7 @@ export const injectResponsiveStorage = (app: App, config: PlatformConfigs) => {
       version: config.Version ?? "1.0.0",
       title: config.Title,
       darkMode: config.DarkMode ?? false,
-      isMobile: config.IsMobile ?? false,
+      device: config.Device ?? "desktop",
       theme: config.Theme ?? "light"
     }
   });
