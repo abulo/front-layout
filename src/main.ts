@@ -5,7 +5,7 @@ import { getPlatformConfig } from "@/config";
 import { MotionPlugin } from "@vueuse/motion";
 // import { useEcharts } from "@/plugins/echarts";
 import { createApp } from "vue";
-import { useElementPlus } from "@/plugins/elementPlus";
+// import { useElementPlus } from "@/plugins/elementPlus";
 import { injectResponsiveStorage } from "@/utils/responsive";
 
 // 引入重置样式
@@ -17,11 +17,18 @@ import "./style/tailwind.css";
 import "element-plus/dist/index.css";
 
 const app = createApp(App);
+
+// 全局注册@iconify/vue图标库
+import { IconifyIconOffline, IconifyIconOnline, FontIcon } from "./components/ReIcon";
+app.component("IconifyIconOffline", IconifyIconOffline);
+app.component("IconifyIconOnline", IconifyIconOnline);
+app.component("FontIcon", FontIcon);
+
 getPlatformConfig(app).then(async config => {
   setupStore(app);
   app.use(router);
   await router.isReady();
   injectResponsiveStorage(app, config);
-  app.use(MotionPlugin).use(useElementPlus);
+  app.use(MotionPlugin);
   app.mount("#app");
 });

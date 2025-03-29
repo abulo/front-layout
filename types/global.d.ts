@@ -92,12 +92,14 @@ declare global {
    * `responsive-storage` 本地响应式 `storage` 的类型声明
    */
   interface ResponsiveStorage {
-    version?: string;
-    title?: string;
-    darkMode?: boolean;
-    device?: string;
-    theme?: string;
-    responsiveStorageNameSpace?: string;
+    layout: {
+      version?: string;
+      title?: string;
+      darkMode?: boolean;
+      device?: string;
+      theme?: string;
+      responsiveStorageNameSpace?: string;
+    };
   }
   interface GlobalPropertiesApi {
     $storage: ResponsiveStorage;
