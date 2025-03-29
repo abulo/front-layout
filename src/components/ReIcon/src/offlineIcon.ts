@@ -42,7 +42,6 @@ import RiCheckboxCircleLine from "~icons/ri/checkbox-circle-line?raw";
 import RiBarChartHorizontalLine from "~icons/ri/bar-chart-horizontal-line?raw";
 
 const icons = [
-  // Element Plus Icon: https://github.com/element-plus/element-plus-icons
   ["ep/menu", EpMenu],
   ["ep/edit", EpEdit],
   ["ep/guide", EpGuide],
@@ -51,7 +50,6 @@ const icons = [
   ["ep/lollipop", EpLollipop],
   ["ep/histogram", EpHistogram],
   ["ep/home-filled", EpHomeFilled],
-  // Remix Icon: https://github.com/Remix-Design/RemixIcon
   ["ri/mind-map", RiMindMap],
   ["ri/admin-fill", RiAdminFill],
   ["ri/links-fill", RiTableLine],
