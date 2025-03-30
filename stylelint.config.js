@@ -18,6 +18,9 @@ export default {
   rules: {
     "prettier/prettier": true,
     "selector-class-pattern": null,
+    "declaration-block-no-duplicate-custom-properties": null,
+    "number-max-precision": null,
+    "no-duplicate-selectors": null,
     "no-descending-specificity": null,
     "no-empty-source": null,
     "scss/dollar-variable-pattern": null,

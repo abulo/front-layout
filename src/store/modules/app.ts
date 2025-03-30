@@ -3,7 +3,13 @@ import { store, getConfig, storageLocal, responsiveStorageNameSpace } from "../u
 
 export const useAppStore = defineStore("pure-app", {
   state: (): ResponsiveStorage => ({
-    layout: storageLocal().getItem<StorageConfigs>(`${responsiveStorageNameSpace()}layout`)?.layout ?? getConfig().Layout
+    layout: storageLocal().getItem<StorageConfigs>(`${responsiveStorageNameSpace()}layout`) ?? {
+      version: getConfig().Version ?? "1.0.0",
+      title: getConfig().Title,
+      darkMode: getConfig().DarkMode ?? false,
+      device: getConfig().Device ?? "desktop",
+      theme: getConfig().Theme ?? "light"
+    }
   }),
   getters: {
     getLayout(state) {
