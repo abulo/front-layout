@@ -23,6 +23,26 @@
         </div>
       </div>
     </div>
+    <div class="home-dynamic text-[0.875rem]">
+      <div class="container mx-auto pl-[0.5rem] pr-[0.5rem] pt-3 pb-0">
+        <div class="home-notice-container flex flex-row items-center overflow-hidden p-2 rounded-[0.25rem]">
+          <div class="flex flex-row items-center justify-center home-notice-volume text-white rounded-[0.25rem] p-[0.2rem_0.3rem] mr-[0.25rem]">
+            <IconifyIconOnline icon="fa-solid:volume-up" />
+            <div class="pl-[0.25rem]">网站动态</div>
+          </div>
+          <div class="flex-1 items-end p-[0.2rem_0.3rem]">
+            <NoticeBar :stepInterval="2000" direction="left" :transitionDuration="200">
+              <div class="notice-item">177****2331 开通了黄金会员</div>
+              <div class="notice-item">177****2331 开通了黄金会员</div>
+              <div class="notice-item">177****2331 开通了黄金会员</div>
+              <div class="notice-item">177****2331 开通了黄金会员</div>
+              <div class="notice-item">177****2331 开通了黄金会员</div>
+              <div class="notice-item">177****2331 开通了黄金会员</div>
+            </NoticeBar>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="h-[1000px]">dd</div>
   </main>
 </template>
@@ -30,6 +50,7 @@
 import { onMounted } from "vue";
 import { jarallax } from "jarallax";
 import Search from "@/components/Search/index.vue";
+import NoticeBar from "@/components/NoticeBar/index.vue";
 import bg from "@/assets/bg.png";
 defineOptions({
   name: "Index"
@@ -104,6 +125,29 @@ onMounted(() => {
       margin-top: -30px !important;
       object-fit: cover;
     }
+  }
+}
+
+.home-notice-container {
+  font-size: 0.857rem;
+  font-weight: 400;
+  line-height: 1;
+  background-color: rgba(var(--layout-home-notice-bg-rgb), 0.1) !important;
+
+  .home-notice-volume {
+    background-color: rgba(var(--layout-home-notice-bg-rgb), 1) !important;
+  }
+
+  .notice-item {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 100%;
+    height: 100%;
+    font-size: 0.857rem;
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap;
   }
 }
 </style>
