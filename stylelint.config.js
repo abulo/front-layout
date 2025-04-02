@@ -16,6 +16,9 @@ export default {
     }
   ],
   rules: {
+    "function-no-unknown": null,
+    "scss/function-no-unknown": null,
+    "value-keyword-case": null, // 在 css 中使用 v-bind，不报错
     "prettier/prettier": true,
     "selector-class-pattern": null,
     "declaration-block-no-duplicate-custom-properties": null,
