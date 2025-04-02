@@ -129,7 +129,7 @@ onMounted(() => {
 }
 
 .home-notice-container {
-  font-size: 0.857rem;
+  // font-size: 0.857rem;
   font-weight: 400;
   line-height: 1;
   background-color: rgba(var(--layout-home-notice-bg-rgb), 0.1) !important;
@@ -144,7 +144,7 @@ onMounted(() => {
     justify-content: start;
     width: 100%;
     height: 100%;
-    font-size: 0.857rem;
+    // font-size: 0.857rem;
     font-weight: 500;
     line-height: 1;
     white-space: nowrap;

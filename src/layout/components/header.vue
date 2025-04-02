@@ -33,12 +33,16 @@
           <span class="action-btn toggle-search" @click="toggleSearch"><IconifyIconOnline icon="fa-solid:search" class="font-[900] leading-[60px]" /></span>
           <!-- <span class="action-btn toggle-notify"><IconifyIconOnline :icon="isNotifyLoading ? 'svg-spinners:8-dots-rotate' : 'fa-solid:bell'" class="font-[900] leading-[60px]" /></span> -->
           <span class="action-btn toggle-notify"><IconifyIconOnline icon="fa-solid:bell" class="font-[900] leading-[60px]" /></span>
-          <span class="action-btn login-btn flex items-center"><IconifyIconOnline icon="fa-solid:user" class="font-[900] leading-[60px] flex mr-[0.25rem]" /><span class="flex">登录</span></span>
+          <span class="action-btn login-btn flex items-center" @click="toggleLogin">
+            <IconifyIconOnline icon="fa-solid:user" class="font-[900] leading-[60px] flex mr-[0.25rem]" />
+            <span class="flex">登录</span>
+          </span>
         </div>
         <div :class="isOpenSearch ? 'navbar-search show' : 'navbar-search'" ref="searchBox"><Search /></div>
       </div>
     </div>
   </header>
+  <Popup v-model="loginVisible" :width="320"> sss </Popup>
   <div class="header-gap" :class="routeName === 'Index' ? 'h-0' : 'h-[60px]'" />
 </template>
 
@@ -46,6 +50,7 @@
 import { ref, onMounted, h, computed, onBeforeUnmount } from "vue";
 import { useRoute } from "vue-router";
 import Search from "@/components/Search/index.vue";
+import Popup from "@/components/Popup/index.vue";
 import logo from "@/assets/logo.png";
 
 defineOptions({
@@ -57,7 +62,11 @@ const routeName = route.name;
 const isDark = ref(false);
 const isOpenSearch = ref(false);
 const searchBox = ref(null);
+const loginVisible = ref(false);
 
+const toggleLogin = () => {
+  loginVisible.value = true;
+};
 // 切换搜索框状态
 const toggleSearch = () => {
   isOpenSearch.value = true;
