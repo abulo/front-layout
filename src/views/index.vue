@@ -47,7 +47,7 @@
       <div class="container mx-auto pt-[2rem] pb-[2rem] pl-[0.5rem] pr-[0.5rem] md:pl-[0rem] md:pr-[0rem]">
         <Swiper :items="items">
           <template #item="{ item }">
-            <div class="bg-blue-400 rounded-lg h-40 flex items-center justify-center">
+            <div class="bg-blue-400 rounded-lg h-[75px] lg:h-[120px] flex items-center justify-center">
               <p class="text-xl font-semibold">{{ item.title }}</p>
             </div>
           </template>
