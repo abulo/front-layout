@@ -1,6 +1,6 @@
 <template>
   <header class="bg-white text-[#4d4d4d] absolute left-0 top-0 right-0 z-80" :class="headerClass">
-    <div class="container mx-auto pl-[0.5rem] pr-[0.5rem]">
+    <div class="container mx-auto pl-[0.5rem] pr-[0.5rem] md:pl-[0rem] md:pr-[0rem]">
       <div class="navbar flex items-center h-[60px] relative">
         <div class="logo-wrapper relative">
           <router-link :to="{ path: '/' }"> <img :src="logo" class="h-[60px] min-w-[100px] w-[auto]" /></router-link>

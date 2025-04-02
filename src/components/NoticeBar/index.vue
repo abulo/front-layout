@@ -27,6 +27,9 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onBeforeUnmount, useSlots } from "vue";
 
+defineOptions({
+  name: "NoticeBar"
+});
 interface Props {
   stepInterval?: number;
   direction?: "left" | "right";
