@@ -1,8 +1,8 @@
 <template>
-  <div class="relative w-full overflow-hidden px-0">
+  <div class="relative w-full overflow-hidden px-0 block">
     <div
       ref="container"
-      class="flex transition-transform duration-300 ease-in-out"
+      class="flex transition-transform duration-300 ease-in-out relative"
       :style="{ transition: '0.25s', transform: `translateX(-${currentOffset}px)` }"
       @touchstart="handleTouchStart"
       @touchmove="handleTouchMove"
@@ -22,24 +22,23 @@
         <slot name="item" :item="item" :index="index" />
       </div>
     </div>
-
     <!-- Navigation buttons -->
-    <button
-      v-if="showNavigation"
-      @click="prev"
-      class="absolute left-2 top-1/2 -translate-y-1/2 bg-white bg-opacity-70 rounded-full p-2 shadow-md z-10 hover:bg-opacity-100 transition-all hidden md:block"
-      :class="{ 'opacity-50 cursor-not-allowed': currentOffset <= 0 }"
-      :disabled="currentOffset <= 0">
-      <IconifyIconOnline icon="ep:arrow-left-bold" />
-    </button>
-    <button
-      v-if="showNavigation"
-      @click="next"
-      class="absolute right-2 top-1/2 -translate-y-1/2 bg-white bg-opacity-70 rounded-full p-2 shadow-md z-10 hover:bg-opacity-100 transition-all hidden md:block"
-      :class="{ 'opacity-50 cursor-not-allowed': currentOffset >= maxOffset }"
-      :disabled="currentOffset >= maxOffset">
-      <IconifyIconOnline icon="ep:arrow-right-bold" />
-    </button>
+    <div v-if="showNavigation" class="control absolute top-[50%] left-[50%] w-full flex justify-between pointer-events-none">
+      <div
+        @click="prev"
+        class="control-btn text-[#fff] m-[5px] p-[6px] inline-block cursor-pointer rounded-[3px] pointer-events-auto"
+        :class="{ 'opacity-[0.5] cursor-default': currentOffset <= 0 }"
+        :disabled="currentOffset <= 0">
+        <IconifyIconOnline icon="fa-solid:angle-left" />
+      </div>
+      <div
+        @click="next"
+        class="control-btn text-[#fff] m-[5px] p-[6px] inline-block cursor-pointer rounded-[3px] pointer-events-auto"
+        :class="{ 'opacity-[0.5] cursor-default': currentOffset >= maxOffset }"
+        :disabled="currentOffset >= maxOffset">
+        <IconifyIconOnline icon="fa-solid:angle-right" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -83,13 +82,13 @@ const visibleItemsCount = computed(() => {
     case "sm":
       return 2;
     case "md":
-      return 3;
+      return 2;
     case "lg":
-      return 4;
+      return 3;
     case "xl":
-      return 5;
+      return 4;
     case "2xl":
-      return 6;
+      return 5;
     default:
       return 2;
   }
@@ -284,3 +283,19 @@ onUnmounted(() => {
   }
 });
 </script>
+<style lang="scss" scoped>
+.control {
+  padding: 0 1rem;
+  transform: translate(-50%, -50%);
+
+  .control-btn {
+    background: rgb(0 0 0 / 25%);
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      text-decoration: none;
+      background: #03a9f4;
+    }
+  }
+}
+</style>
