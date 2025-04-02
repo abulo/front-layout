@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="home-search-box">
-      <div class="search-bg text-center relative z-0 bg-type-img jarallax pt-[60px] lg:pt-[0px]" data-jarallax="" data-speed="0.2">
+      <div class="search-bg text-center relative z-0 bg-type-img jarallax pt-[60px]" data-jarallax="" data-speed="0.2">
         <div class="search-bg-overlay absolute top-0 left-0 z-1 h-[100%] w-[100%]" />
         <img class="jarallax-img lazy" :data-src="bg" :src="bg" alt="搜索本站精品资源" />
         <div class="container search-warp max-w-[100%] lg:max-w-[50%] pt-[40px] pb-[40px] lg:pt-[120px] lg:pb-[120px] mx-auto pl-[0.5rem] pr-[0.5rem]">
@@ -101,7 +101,7 @@ onMounted(() => {
       z-index: -1;
       width: 100%;
       height: 100%;
-      margin-top: 45px !important;
+      margin-top: -30px !important;
       object-fit: cover;
     }
   }
