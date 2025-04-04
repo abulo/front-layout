@@ -23,20 +23,22 @@
       </div>
     </div>
     <!-- Navigation buttons -->
-    <div v-if="showNavigation" class="control absolute top-[50%] left-[50%] w-full flex justify-between pointer-events-none">
-      <div
-        @click="prev"
-        class="control-btn text-[#fff] m-[5px] p-[6px] inline-block cursor-pointer rounded-[3px] pointer-events-auto"
-        :class="{ 'opacity-[0.5] cursor-default': currentOffset <= 0 }"
-        :disabled="currentOffset <= 0">
-        <IconifyIconOnline icon="fa-solid:angle-left" />
-      </div>
-      <div
-        @click="next"
-        class="control-btn text-[#fff] m-[5px] p-[6px] inline-block cursor-pointer rounded-[3px] pointer-events-auto"
-        :class="{ 'opacity-[0.5] cursor-default': currentOffset >= maxOffset }"
-        :disabled="currentOffset >= maxOffset">
-        <IconifyIconOnline icon="fa-solid:angle-right" />
+    <div v-if="showNavigation" class="control absolute top-[50%] left-[50%] w-full pointer-events-none hidden md:block">
+      <div class="flex justify-between">
+        <div
+          @click="prev"
+          class="control-btn text-[#fff] m-[5px] p-[6px] inline-block cursor-pointer rounded-[3px] pointer-events-auto"
+          :class="{ 'opacity-[0.5] cursor-default': currentOffset <= 0 }"
+          :disabled="currentOffset <= 0">
+          <IconifyIconOnline icon="fa-solid:angle-left" />
+        </div>
+        <div
+          @click="next"
+          class="control-btn text-[#fff] m-[5px] p-[6px] inline-block cursor-pointer rounded-[3px] pointer-events-auto"
+          :class="{ 'opacity-[0.5] cursor-default': currentOffset >= maxOffset }"
+          :disabled="currentOffset >= maxOffset">
+          <IconifyIconOnline icon="fa-solid:angle-right" />
+        </div>
       </div>
     </div>
   </div>
