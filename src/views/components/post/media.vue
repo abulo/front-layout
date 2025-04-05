@@ -6,7 +6,7 @@
         <div class="mb-0 text-[rgba(89,93,105,0.75)]">当前热门分类文章展示</div>
       </div>
     </div>
-    <div class="container mx-auto pt-[1rem] md:pt-[2rem] pl-[0.5rem] pr-[0.5rem] md:pl-[0rem] md:pr-[0rem] grid grid-cols-2 gap-2 md:gap-4">
+    <div class="container mx-auto pt-[1rem] md:pt-[2rem] pl-[0.5rem] pr-[0.5rem] md:pl-[0rem] md:pr-[0rem] grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
       <!-- audio  -->
       <div class="post-item relative overflow-hidden rounded-[0.3rem] bg-(--layout-post-bg)" v-for="(item, index) in 4">
         <div class="post-tips absolute top-0 left-0 z-1 m-2 whitespace-nowrap">

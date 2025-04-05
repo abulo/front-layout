@@ -8,6 +8,8 @@
     <CmsPost />
     <TitlePost />
     <MediaPost />
+    <CmsRowPost />
+    <CmsRowOnlyPost />
 
     <div class="h-[1000px]">dd</div>
     <el-backtop :right="5" :bottom="100" />
@@ -22,6 +24,8 @@ import LastPost from "./components/post/last.vue";
 import CmsPost from "./components/post/cms.vue";
 import TitlePost from "./components/post/title.vue";
 import MediaPost from "./components/post/media.vue";
+import CmsRowPost from "./components/post/cms-row.vue";
+import CmsRowOnlyPost from "./components/post/cms-row-only.vue";
 defineOptions({
   name: "Index"
 });
