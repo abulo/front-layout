@@ -4,8 +4,14 @@
     <div class="flex-1 h-full" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave">
       <div class="relative h-full">
         <Transition :name="transitionName" mode="out-in">
-          <div class="absolute flex items-center justify-center w-full h-full" :key="currentIndex">
-            <component :is="slotItems[currentIndex]" v-if="hasContent" />
+          <div class="absolute flex items-center justify-center w-full h-full" :key="currentIndex" v-if="hasContent">
+            <template v-if="useItems">
+              <slot name="item" :item="currentItemData" v-if="slots.item" />
+              <div v-else>{{ currentItemData }}</div>
+            </template>
+            <template v-else>
+              <component :is="currentSlotItem" />
+            </template>
           </div>
         </Transition>
       </div>
@@ -13,7 +19,9 @@
     <!-- 控制按钮 -->
     <div class="control h-full flex items-center justify-center cursor-pointer bg-[none]">
       <div @click="scrollStep(-1)">
-        <slot name="left"> <IconifyIconOnline icon="ep:arrow-left-bold" /></slot>
+        <slot name="left">
+          <IconifyIconOnline icon="ep:arrow-left-bold" />
+        </slot>
       </div>
       <div @click="scrollStep(1)">
         <slot name="right">
@@ -30,12 +38,14 @@ import { ref, computed, onMounted, onBeforeUnmount, useSlots } from "vue";
 defineOptions({
   name: "NoticeBar"
 });
+
 interface Props {
   stepInterval?: number;
   direction?: "left" | "right";
   pauseOnHover?: boolean;
   autoScroll?: boolean;
   transitionDuration?: number;
+  items?: any[];
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -43,7 +53,8 @@ const props = withDefaults(defineProps<Props>(), {
   direction: "left",
   pauseOnHover: true,
   autoScroll: true,
-  transitionDuration: 500
+  transitionDuration: 500,
+  items: () => []
 });
 
 const slots = useSlots();
@@ -53,22 +64,25 @@ const currentIndex = ref(0);
 const isTransitioning = ref(false);
 const scrollDirection = ref<"left" | "right">(props.direction);
 
-const slotItems = computed(() => (slots.default ? slots.default() : []));
-const hasContent = computed(() => slotItems.value.length > 0);
+// 新增计算属性
+const useItems = computed(() => props.items.length > 0);
+const currentItemData = computed(() => props.items[currentIndex.value]);
+const currentSlotItem = computed(() => slots.default?.()[currentIndex.value]);
+const hasContent = computed(() => (useItems.value ? props.items.length > 0 : !!slots.default?.()));
+
 const transitionName = computed(() => (scrollDirection.value === "left" ? "slide-left" : "slide-right"));
 
 const scrollStep = (direction: number) => {
-  if (!hasContent.value || slotItems.value.length <= 1 || isTransitioning.value) return;
+  if (!hasContent.value || isTransitioning.value) return;
+
+  const contentLength = useItems.value ? props.items.length : slots.default?.().length || 0;
+  if (contentLength <= 1) return;
 
   scrollDirection.value = direction > 0 ? "right" : "left";
   isTransitioning.value = true;
   stopAutoScroll();
 
-  if (direction > 0) {
-    currentIndex.value = (currentIndex.value + 1) % slotItems.value.length;
-  } else {
-    currentIndex.value = (currentIndex.value - 1 + slotItems.value.length) % slotItems.value.length;
-  }
+  currentIndex.value = (currentIndex.value + direction + contentLength) % contentLength;
 
   setTimeout(() => {
     isTransitioning.value = false;
@@ -76,17 +90,16 @@ const scrollStep = (direction: number) => {
   }, props.transitionDuration);
 };
 
+// 保持原有的自动滚动逻辑
 const startAutoScroll = () => {
-  if (!props.autoScroll || isHovering.value || !hasContent.value || slotItems.value.length <= 1) return;
+  if (!props.autoScroll || isHovering.value || !hasContent.value || props.items.length <= 1) return;
   stopAutoScroll();
   scrollTimer.value = window.setTimeout(() => scrollStep(props.direction === "left" ? -1 : 1), props.stepInterval);
 };
 
 const stopAutoScroll = () => {
-  if (scrollTimer.value) {
-    clearTimeout(scrollTimer.value);
-    scrollTimer.value = null;
-  }
+  scrollTimer.value && clearTimeout(scrollTimer.value);
+  scrollTimer.value = null;
 };
 
 const handleMouseEnter = () => props.pauseOnHover && (isHovering.value = true) && stopAutoScroll();
@@ -97,12 +110,12 @@ onBeforeUnmount(stopAutoScroll);
 </script>
 
 <style lang="scss" scoped>
+/* 保持原有的样式不变 */
 .control {
   background: none;
   border: none;
 }
 
-/* 向左滑动效果 */
 .slide-left-enter-active,
 .slide-left-leave-active {
   transition: all v-bind('props.transitionDuration + "ms"') ease;
@@ -116,7 +129,6 @@ onBeforeUnmount(stopAutoScroll);
   transform: translateX(-100%);
 }
 
-/* 向右滑动效果 */
 .slide-right-enter-active,
 .slide-right-leave-active {
   transition: all v-bind('props.transitionDuration + "ms"') ease;
