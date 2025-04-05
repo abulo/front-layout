@@ -7,6 +7,7 @@
     <LastPost />
     <CmsPost />
     <TitlePost />
+    <MediaPost />
 
     <div class="h-[1000px]">dd</div>
     <el-backtop :right="5" :bottom="100" />
@@ -20,6 +21,7 @@ import DivisionBox from "./components/division-box.vue";
 import LastPost from "./components/post/last.vue";
 import CmsPost from "./components/post/cms.vue";
 import TitlePost from "./components/post/title.vue";
+import MediaPost from "./components/post/media.vue";
 defineOptions({
   name: "Index"
 });

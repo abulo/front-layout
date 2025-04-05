@@ -12,6 +12,14 @@
   .post-entry-img {
     transition: all 0.3s ease-in-out;
   }
+
+  .post-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    background: rgb(0 0 0 / 45%);
+    border: 2px solid transparent;
+    transition: all 0.1s ease-in-out;
+  }
 }
 
 .post-tips {
