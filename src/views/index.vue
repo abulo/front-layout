@@ -10,6 +10,7 @@
     <MediaPost />
     <CmsRowPost />
     <CmsRowOnlyPost />
+    <CmsPptPost />
 
     <div class="h-[1000px]">dd</div>
     <el-backtop :right="5" :bottom="100" />
@@ -26,6 +27,7 @@ import TitlePost from "./components/post/title.vue";
 import MediaPost from "./components/post/media.vue";
 import CmsRowPost from "./components/post/cms-row.vue";
 import CmsRowOnlyPost from "./components/post/cms-row-only.vue";
+import CmsPptPost from "./components/post/cms-ppt.vue";
 defineOptions({
   name: "Index"
 });

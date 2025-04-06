@@ -45,6 +45,26 @@
   }
 }
 
+.post-entry-ppt {
+  &::before {
+    display: block;
+    padding-top: 132.6666666667%;
+    content: "";
+  }
+
+  .post-entry-img {
+    transition: all 0.3s ease-in-out;
+  }
+
+  .post-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    background: rgb(0 0 0 / 45%);
+    border: 2px solid transparent;
+    transition: all 0.1s ease-in-out;
+  }
+}
+
 .post-entry-auto {
   -webkit-box-flex: 0;
   flex: 0 0 auto;
