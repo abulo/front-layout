@@ -53,10 +53,12 @@ defineOptions({
 interface Props {
   items: any[];
   showNavigation?: boolean;
+  size?: number;
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  showNavigation: true
+  showNavigation: true,
+  size: 0
 });
 
 const container = ref<HTMLElement | null>(null);
@@ -80,6 +82,10 @@ const breakpoints = {
 
 // Items to show based on breakpoint
 const visibleItemsCount = computed(() => {
+  const size = props.size;
+  if (size > 0) {
+    return size;
+  }
   switch (breakpoint.value) {
     case "sm":
       return 2;
