@@ -2,6 +2,7 @@
   <main>
     <SearchBox />
     <NoticeBox />
+    <Background />
     <CateBox />
     <DivisionBox />
     <LastPost />
@@ -28,6 +29,7 @@ import MediaPost from "./components/post/media.vue";
 import CmsRowPost from "./components/post/cms-row.vue";
 import CmsRowOnlyPost from "./components/post/cms-row-only.vue";
 import CmsPptPost from "./components/post/cms-ppt.vue";
+import Background from "./components/background.vue";
 defineOptions({
   name: "Index"
 });
