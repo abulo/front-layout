@@ -7,7 +7,7 @@
       </div>
     </div>
     <div class="container mx-auto pt-[1rem] md:pt-[2rem] pl-[0.5rem] pr-[0.5rem] md:pl-[0rem] md:pr-[0rem] grid grid-cols-2 md:grid-cols-5 gap-2 md:gap-4">
-      <div class="post-item relative overflow-hidden rounded-[0.3rem] bg-(--layout-post-bg)" v-for="(item, index) in 10" :key="index">
+      <div v-for="(item, index) in 10" :key="index" class="post-item relative overflow-hidden rounded-[0.3rem] bg-(--layout-post-bg)">
         <div class="post-tips absolute top-0 left-0 z-1 m-2 whitespace-nowrap">
           <div class="post-tip-dark inline-block p-[0.35rem_0.65rem] text-[0.65rem] text-white leading-[1] text-center whitespace-nowrap align-baseline rounded-[0.25rem]">置顶</div>
           <div class="post-tip-warning inline-block p-[0.35rem_0.65rem] text-[0.65rem] text-white leading-[1] text-center whitespace-nowrap align-baseline rounded-[0.25rem]">置顶</div>

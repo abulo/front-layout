@@ -1,5 +1,5 @@
 // 响应式storage
-import type { App } from "vue";
+import { App } from "vue";
 import Storage from "responsive-storage";
 import { responsiveStorageNameSpace } from "@/config";
 

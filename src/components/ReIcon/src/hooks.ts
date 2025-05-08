@@ -1,5 +1,5 @@
-import type { iconType } from "./types";
-import { h, defineComponent, type Component } from "vue";
+import { iconType } from "./types";
+import { h, defineComponent, Component } from "vue";
 import { FontIcon, IconifyIconOnline, IconifyIconOffline } from "../index";
 
 /**

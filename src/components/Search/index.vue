@@ -16,7 +16,7 @@
 
 <script setup lang="ts">
 defineOptions({
-  name: "Search"
+  name: "BaseSearch"
 });
 </script>
 

@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import { constantRouter } from "@/router/modules";
 import NProgress from "@/utils/progress";
-let router = createRouter({
+const router = createRouter({
   // 路由模式 History
   history: createWebHistory(),
   routes: constantRouter

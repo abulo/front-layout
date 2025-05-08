@@ -6,7 +6,7 @@
       <div class="container search-warp max-w-[100%] lg:max-w-[50%] pt-[40px] pb-[40px] lg:pt-[120px] lg:pb-[120px] mx-auto pl-[0.5rem] pr-[0.5rem] md:pl-[0rem] md:pr-[0rem]">
         <h1 class="search-title text-[#fff]! mb-[0.875rem]! leading-[1.2] font-[500] text-[1.5rem]! lg:text-[1.75rem]!">搜索本站精品资源</h1>
         <p class="search-desc hidden lg:block text-[rgba(255,255,255,.85)] mb-[1.5rem] text-[1rem]">RiPro是Ritheme全新开发甄品VIP会员资源/素材虚拟商城主题</p>
-        <Search />
+        <BaseSearch />
         <div class="search-hots">
           <span>搜索热词</span>
           <span>wordpress</span>
@@ -27,7 +27,7 @@
 <script setup lang="ts">
 import { onMounted } from "vue";
 import { jarallax } from "jarallax";
-import Search from "@/components/Search/index.vue";
+import BaseSearch from "@/components/Search/index.vue";
 import bg from "@/assets/bg.png";
 defineOptions({
   name: "SearchBox"

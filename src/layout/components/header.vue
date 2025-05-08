@@ -38,7 +38,7 @@
             <span class="flex">登录</span>
           </span>
         </div>
-        <div :class="isOpenSearch ? 'navbar-search show' : 'navbar-search'" ref="searchBox"><Search /></div>
+        <div ref="searchBox" :class="isOpenSearch ? 'navbar-search show' : 'navbar-search'"><BaseSearch /></div>
       </div>
     </div>
   </header>
@@ -49,7 +49,7 @@
 <script setup lang="ts">
 import { ref, onMounted, h, computed, onBeforeUnmount } from "vue";
 import { useRoute } from "vue-router";
-import Search from "@/components/Search/index.vue";
+import BaseSearch from "@/components/Search/index.vue";
 import Popup from "@/components/Popup/index.vue";
 import logo from "@/assets/logo.png";
 

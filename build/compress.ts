@@ -1,4 +1,4 @@
-import type { Plugin } from "vite";
+import { Plugin } from "vite";
 import { isArray } from "@pureadmin/utils";
 import compressPlugin from "vite-plugin-compression";
 

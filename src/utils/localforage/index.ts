@@ -1,5 +1,5 @@
 import forage from "localforage";
-import type { LocalForage, ProxyStorage, ExpiresData } from "./types.d";
+import { LocalForage, ProxyStorage, ExpiresData } from "./types.d";
 
 class StorageProxy implements ProxyStorage {
   protected storage: LocalForage;

@@ -1,19 +1,18 @@
 import js from "@eslint/js";
+import tseslint from "typescript-eslint";
 import pluginVue from "eslint-plugin-vue";
 import * as parserVue from "vue-eslint-parser";
 import configPrettier from "eslint-config-prettier";
 import pluginPrettier from "eslint-plugin-prettier";
-// import { defineFlatConfig } from "eslint-define-config";
-import * as parserTypeScript from "@typescript-eslint/parser";
-import pluginTypeScript from "@typescript-eslint/eslint-plugin";
+import { defineConfig, globalIgnores } from "eslint/config";
 
-export default [
+export default defineConfig([
+  globalIgnores(["**/.*", "dist/*", "*.d.ts", "public/*", "src/assets/**", "src/**/iconfont/**"]),
   {
     ...js.configs.recommended,
-    ignores: ["**/.*", "dist/*", "*.d.ts", "public/*", "src/assets/**", "src/**/iconfont/**"],
     languageOptions: {
       globals: {
-        // index.d.ts
+        // types/index.d.ts
         RefType: "readonly",
         EmitType: "readonly",
         TargetContext: "readonly",
@@ -68,21 +67,10 @@ export default [
       ]
     }
   },
-  {
+  ...tseslint.config({
+    extends: [...tseslint.configs.recommended],
     files: ["**/*.?([cm])ts", "**/*.?([cm])tsx"],
-    languageOptions: {
-      parser: parserTypeScript,
-      parserOptions: {
-        sourceType: "module",
-        warnOnUnsupportedTypeScriptVersion: false
-      }
-    },
-    plugins: {
-      "@typescript-eslint": pluginTypeScript
-    },
     rules: {
-      ...pluginTypeScript.configs.strict.rules,
-      "@typescript-eslint/ban-types": "off",
       "@typescript-eslint/no-redeclare": "error",
       "@typescript-eslint/ban-ts-comment": "off",
       "@typescript-eslint/no-explicit-any": "off",
@@ -93,17 +81,15 @@ export default [
       "@typescript-eslint/no-unsafe-function-type": "off",
       "@typescript-eslint/no-import-type-side-effects": "error",
       "@typescript-eslint/explicit-module-boundary-types": "off",
-      "@typescript-eslint/no-empty-object-type": "off",
       "@typescript-eslint/no-namespace": "off",
-      "@typescript-eslint/consistent-type-imports": ["error", { disallowTypeAnnotations: false, fixStyle: "inline-type-imports" }],
-      // "@typescript-eslint/consistent-type-imports": [
-      //   "error",
-      //   {
-      //     disallowTypeAnnotations: false,
-      //     fixStyle: "inline-type-imports",
-      //     prefer: "no-type-imports"
-      //   }
-      // ],
+      "@typescript-eslint/consistent-type-imports": [
+        "error",
+        {
+          disallowTypeAnnotations: false,
+          fixStyle: "inline-type-imports",
+          prefer: "no-type-imports"
+        }
+      ],
       "@typescript-eslint/prefer-literal-enum-member": ["error", { allowBitwiseExpressions: true }],
       "@typescript-eslint/no-unused-vars": [
         "error",
@@ -113,12 +99,13 @@ export default [
         }
       ]
     }
-  },
+  }),
   {
     files: ["**/*.d.ts"],
     rules: {
       "eslint-comments/no-unlimited-disable": "off",
       "import/no-duplicates": "off",
+      "no-restricted-syntax": "off",
       "unused-imports/no-unused-vars": "off"
     }
   },
@@ -147,18 +134,19 @@ export default [
           jsx: true
         },
         extraFileExtensions: [".vue"],
-        parser: "@typescript-eslint/parser",
+        parser: tseslint.parser,
         sourceType: "module"
       }
     },
     plugins: {
+      "@typescript-eslint": tseslint.plugin,
       vue: pluginVue
     },
     processor: pluginVue.processors[".vue"],
     rules: {
-      // ...pluginVue.configs.base.rules,
-      // ...pluginVue.configs["vue3-essential"].rules,
-      // ...pluginVue.configs["vue3-recommended"].rules,
+      ...pluginVue.configs.base.rules,
+      ...pluginVue.configs.essential.rules,
+      ...pluginVue.configs.recommended.rules,
       "no-undef": "off",
       "no-unused-vars": "off",
       "vue/no-v-html": "off",
@@ -180,4 +168,4 @@ export default [
       ]
     }
   }
-];
+]);

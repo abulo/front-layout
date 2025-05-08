@@ -7,7 +7,7 @@
       </div>
     </div>
     <div class="container mx-auto pt-[1rem] md:pt-[2rem] pl-[0.5rem] pr-[0.5rem] md:pl-[0rem] md:pr-[0rem] grid grid-cols-1 md:max-lg:grid-cols-2 lg:grid-cols-4 gap-2 md:max-lg:gap-3 lg:gap-4">
-      <div class="list-posts relative rounded-[0.3rem] overflow-hidden" v-for="(item, index) in 4">
+      <div v-for="(item, index) in 4" :key="index" :val="item" class="list-posts relative rounded-[0.3rem] overflow-hidden">
         <div class="category-bg" :style="{ backgroundImage: `url(${post})` }">
           <div class="category-title flex items-center justify-center text-[#ffffff] text-[1.15rem] text-center mb-[0.5rem]">
             <IconifyIconOnline icon="ri:circle-line" />
@@ -18,7 +18,7 @@
           </div>
         </div>
         <ul class="list-post-container">
-          <li v-for="(item, index) in 4">
+          <li v-for="(item, index) in 4" :key="index" :val="item">
             <div class="title inline-block pr-[5px] line-clamp-1 whitespace-nowrap overflow-hidden text-ellipsis ml-[0]">
               <span class="post-num inline-block text-[#fff] bg-[#999] text-[14px] w-[18px] h-[18px] leading-[18px] text-center">{{ index + 1 }}</span>
               <a href="#">Aments-汽车配件商店HTML模板</a>

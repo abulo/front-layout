@@ -16,7 +16,7 @@
               { id: 2, text: '188****4455 购买了年费套餐' }
             ]">
             <template #item="{ item }">
-              <div class="notice-item" :key="item.id">{{ item.id }} - {{ item.text }}</div>
+              <div :key="item.id" class="notice-item">{{ item.id }} - {{ item.text }}</div>
             </template>
           </NoticeBar>
         </div>

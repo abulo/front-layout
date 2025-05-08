@@ -1,5 +1,5 @@
 <template>
-  <div class="layer bottom-0 left-0 right-0 top-0 z-50 fixed" v-if="modelValue">
+  <div v-if="modelValue" class="layer bottom-0 left-0 right-0 top-0 z-50 fixed">
     <div class="header-popup fixed flex items-center justify-center left-0 top-0 h-full w-full z-[999] overflow-x-hidden overflow-y-auto opacity-[1] visible">
       <div class="header-popup-body" :style="contentStyle">
         <div class="header-popup-close"><span class="svg-close" @click="closePopup" /></div>

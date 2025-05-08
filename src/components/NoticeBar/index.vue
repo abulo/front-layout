@@ -4,9 +4,9 @@
     <div class="flex-1 h-full" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave">
       <div class="relative h-full">
         <Transition :name="transitionName" mode="out-in">
-          <div class="absolute flex items-center justify-center w-full h-full" :key="currentIndex" v-if="hasContent">
+          <div v-if="hasContent" :key="currentIndex" class="absolute flex items-center justify-center w-full h-full">
             <template v-if="useItems">
-              <slot name="item" :item="currentItemData" v-if="slots.item" />
+              <slot v-if="slots.item" name="item" :item="currentItemData" />
               <div v-else>{{ currentItemData }}</div>
             </template>
             <template v-else>

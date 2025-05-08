@@ -7,7 +7,7 @@
       </div>
     </div>
     <div class="container mx-auto pt-[1rem] md:pt-[2rem] pl-[0.5rem] pr-[0.5rem] md:pl-[0rem] md:pr-[0rem] grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
-      <div class="post-item relative overflow-hidden rounded-[0.3rem] bg-(--layout-post-bg) flex flex-row wrap-break-word p-[0.5rem]" v-for="(item, index) in 4" :key="index">
+      <div v-for="(item, index) in 4" :key="index" class="post-item relative overflow-hidden rounded-[0.3rem] bg-(--layout-post-bg) flex flex-row wrap-break-word p-[0.5rem]">
         <div class="post-cms-only-entry relative overflow-hidden w-full block rounded-[0.25rem] mr-[0.5rem] max-w-[140px] md:max-w-[200px]">
           <router-link
             :to="{ path: '/' }"
